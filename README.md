@@ -10,6 +10,7 @@ I utilised a custom PowerShell script which exports the event logs from the VM a
   - Workbooks
 - **Virtual Machines**
   - Microsoft Windows 11
+  - Custom PS Script to extract Event Logs
   - 'HoneyPotLab' Resource Group
   - Log Analytics Workspace (LAW)
   - Network Security Group
@@ -24,5 +25,12 @@ Project created following this video by Josh Madakor on YouTube:
 
 "SIEM Tutorial for Beginners | Azure Sentinel Tutorial MAP with LIVE CYBER ATTACKS!"
 https://www.youtube.com/watch?v=RoZeVbbZ0o0 
+
+PowerShell Script for the Lab: https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1
+
+Sentinel Map Query:
+FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF
+| where destinationhost_CF != "samplehost"
+| where sourcehost_CF != ""
 
 -->
